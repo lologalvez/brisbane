@@ -21,10 +21,10 @@ case ${COMMAND} in
     U_ID=${UID} docker-compose build
     ;;
   code-style)
-    docker exec --user ${UID} ${DOCKER_BE} php-cs-fixer fix src --rules=@Symfony
+    docker exec --user ${UID} ${DOCKER_BE} php-cs-fixer fix src --rules=@Symfony || true
     ;;
   code-style-check)
-    docker exec --user ${UID} ${DOCKER_BE} php-cs-fixer fix src --rules=@Symfony --dry-run
+    docker exec --user ${UID} ${DOCKER_BE} php-cs-fixer fix src --rules=@Symfony --dry-run || true
     ;;
   run)
     U_ID=${UID} docker exec -it --user ${UID} ${DOCKER_BE} symfony serve -d
