@@ -38,8 +38,11 @@ composer-install: ## Installs composer dependencies
 	./make.sh composer-install ${DOCKER_BE}
 # End backend commands
 
-prepare: ## Runs backend commands
-	$(MAKE) composer-install
+npm-install:
+	./make.sh npm-install ${DOCKER_BE}
+
+encore:
+	./make.sh encore ${DOCKER_BE}
 
 generate-private-key:
 	./make.sh generate-private-key

@@ -41,6 +41,12 @@ case ${COMMAND} in
   generate-private-key)
     openssl genrsa -out private.key 2048
     ;;
+  npm-install)
+    U_ID=${UID} docker exec --user ${UID} ${DOCKER_BE} npm install
+    ;;
+  encore)
+      U_ID=${UID} docker exec --user ${UID} ${DOCKER_BE} yarn encore dev
+      ;;
   *)
     echo "Command ${COMMAND} not implemented"
     ;;
